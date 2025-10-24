@@ -1,0 +1,147 @@
+
+body {
+  font-family: "Alan Sans", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+
+
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-airbnb{
+    color: #fe424d;
+    font-size: 2.5rem;
+}
+
+.nav-link{
+    color: #222 !important; /* to overwrite the bootstrap styling*/
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222;
+    margin: 0.5rem;
+
+}
+
+.f-info-socials a{
+    color: black;
+}
+
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links, .f-info-socials, .airbnb-pvt-lim{
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.f-info-socials i{
+    font-size: 1.4rem;
+    margin-right: 1.2rem;
+    
+}
+
+.f-info-socials i:hover{
+    font-size: 1.8rem;
+}
+
+.footer-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    background-size: inherit;
+
+}
+
+
+/* cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* card effect */
+
+.index-card:hover{
+    opacity: 0.8;
+}
+
+/* new page */
+
+.btn{
+    color: white !important;
+}
+
+/* show page */
+
+.show-img{
+    height: 30vh;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btns{
+    display: flex;
+}
+
+.del-btn{
+    background-color: #222 !important;
+}
+
+.del-review{
+    background-color: #3f0505 !important;
+}
+
+.btn-red{
+    background-color: #fe424d !important;
+}
+
+/*Map*/
+
+#map { 
+    height: 500px;
+    width: 120vh;
+
+}

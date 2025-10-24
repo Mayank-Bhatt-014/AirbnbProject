@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row cols-lg-3 cols-md-2 cols-sm-1">
+        <div class="col-8 offset-2">
+            <h3> Edit Your listing</h3>
+            <form method="POST" action="/listings/<%= currlisting._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <lable for="title" class="form-label">Title</lable>
+                    <input name="listing[title]" value="<%= currlisting.title %>" type="text" class="form-control" required />
+                    <div class="invalid-feedback"> Title is required. </div>
+                </div>
+                
+                <br>
+                <div class="mb-3">
+                    <lable for="description" class="form-label">Description</lable>
+                    <textarea name="listing[description]" class="form-control" required> <%= currlisting.description %> </textarea>
+                    <div class="invalid-feedback"> Enter the description </div>
+                </div>
+                
+                <br>
+
+                <div class="mb-3" >
+                    <u> Original Listing Image </u> <br>
+                    <img src="<%= currlisting.image.url %>" width="500" height="250" />
+                </div>
+                <div class="mb-3 ">
+                    <lable for="image" class="form-label">Upload New Image</lable>
+                    <input name="listing[image][url]" class="form-control" type="file" >
+                </div>
+                
+                <br>
+                <div class="row">
+
+                    <div class="mb-3 col-md-4">
+                        <lable for="price" class="form-label">Price</lable>
+                        <input name="listing[price]" class="form-control" value="<%= currlisting.price %>" type="number" required>
+                        <div class="invalid-feedback"> Enter the valid price  </div>
+                    </div>
+                 
+                    <br>
+                    <div class="mb-3 col-md-8">
+                        <lable for="country"class="form-label">Country</lable>
+                        <input name="listing[country]" class="form-control" value="<%= currlisting.country %>" type="text" required>
+                        <div class="invalid-feedback"> enter the Country </div>
+                    </div>
+                </div>
+                <br>
+                <div class="mb-3 cols">
+                    <lable for="location"class="form-label">location</lable>
+                    <input name="listing[location]" class="form-control" value="<%= currlisting.location %>" type="text" required>
+                    <div class="invalid-feedback"> Enter the location </div>
+                </div>
+                <br>
+                <button class="btn btn-dark btn-red"> Edit the listing </button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
