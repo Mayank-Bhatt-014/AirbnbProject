@@ -1,7 +1,7 @@
 if(process.env.NODE_ENV != "production"){
   require("dotenv").config({ path: "../.env" });
 }
-
+const DBurl = process.env.ATLASDB_URL;
 
 const mongoose = require("mongoose");
 const initdata = require("./data.js");
@@ -11,7 +11,7 @@ const mapToken = 'pk.eyJ1IjoibWVremVrNDIxMSIsImEiOiJjbWgyY3hpZm0weHd1NTlzYjhlNDF
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/Airbnb");
+    await mongoose.connect(DBurl);
 }
 
 main()
