@@ -106,7 +106,7 @@
                         <li class="list-group-item country"><%= listing.country %></li>
                         <li class="list-group-item price">
                             &#8377; <%= listing.price.toLocaleString("en-IN") %>
-                            <i class="tax-info"> + 18% GST </i>
+                            <i class="tax-info"> + <%= (listing.price)*0.18 %> </i>
                         </li>
                     </ul>
                 </div>
