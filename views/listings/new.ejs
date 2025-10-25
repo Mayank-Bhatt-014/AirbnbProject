@@ -1,5 +1,4 @@
 <% layout("/layouts/boilerplate") %>
-<body>
     <div class="row">
         <div class="col-8 offset-2">
             <h3> Create a new listing</h3>
@@ -25,9 +24,33 @@
 
                 <div class="mb-3">
                     <lable for="image" class="form-label">Upload Listing Image</lable>
-                    <input name="listing[image][url]" type="file" class="form-control" required>
+                    <input id="imageInput" name="listing[image][url]" type="file" class="form-control" accept="image/*"  required>
                     <div class="invalid-feedback"> Upload the Photo(must be .png , .jpg , .jpeg) </div>
                 </div class="mb-3">
+                <br>
+
+
+                <!-- Image preview area -->
+                <div class="text-center my-3" style="display:none;" id="previewContainer">
+                    <img id="previewImage" style="max-width:100%; max-height:400px;"/>
+                    <br>
+                    <button type="button" id="cropBtn" class="btn btn-primary mt-3">Crop & Use</button>
+                </div>
+
+                <div class="container my-4" id="previewContainer" style="display:none;">
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                            <div class="crop-container" style="width:100%; aspect-ratio: 4/3; overflow:hidden;">
+                                <img id="previewImage" style="width:100%; display:block;"/>
+                            </div>
+                            <button type="button" id="cropBtn" class="btn btn-primary mt-3">Crop & Use</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <br>
                 
                 <div class="row">
@@ -59,7 +82,5 @@
 
         </div>
     </div>
-    
 
-    
-</body>
+<script src="/js/cropper.js"></script>
