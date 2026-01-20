@@ -46,7 +46,7 @@ async function initDB() {
       const coordinates = await mapimplement(obj);
       return {
         ...obj,
-        owner: new mongoose.Types.ObjectId("68f3b8acc41fe75e6883dac1"),
+        owner: new mongoose.Types.ObjectId("696f550f36ffdb716fc2ebb8"),
         geometry: { type: "Point", coordinates }
       };
     })
