@@ -1,57 +1,58 @@
-# 🌍 Airbnb Clone (Full-Stack MEEN Project)
+🏠 AI-Powered Full-Stack Rental Platform
+A production-grade Airbnb-inspired web application built using the MEEN stack — MongoDB, Express.js, EJS, and Node.js. Features a fully integrated AI Concierge search system powered by OpenAI, enabling natural language property discovery with intelligent fallback mechanisms.
+🔗 Live Demo: airbnbproject-pnwv.onrender.com/listings
 
-A full-fledged **Airbnb-inspired web application** built using the **MEEN stack** — MongoDB, Express.js, EJS, and Node.js.  
-This project allows users to create, manage, and explore property listings with full authentication, image uploads, reviews, pricing logic, and interactive maps — just like the real Airbnb.
+🚀 Features
+🤖 AI Concierge Search (New)
 
----
+Natural language search — type "cozy beach cottage" and get relevant listings
+Powered by OpenAI API for intelligent ranking and recommendations
+Built with a specification-first workflow using GitHub Copilot in CLI
+Graceful fallback system — when OpenAI is unavailable, a custom heuristic scoring engine (70% keyword match + 30% price weighting) ensures users always get results
+Query parser extracts keywords, removes stopwords, and uses regex word-boundary matching for accurate MongoDB queries
 
-## 🚀 Features
+🏠 Listings
 
-### 🏠 Listings
-- Create, edit, and delete listings (only by the creator)
-- Upload images from local storage using **Multer**
-- Images stored securely on **Cloudinary**
-- Interactive **Mapbox** integration to display listing locations
-- Responsive design inspired by Airbnb’s original UI
+Create, edit, and delete listings (only by the creator)
+Upload images using Multer, stored securely on Cloudinary with image cropping
+Interactive Mapbox integration to display listing locations
+Responsive design
 
-### 💰 Pricing
-- Added a **GST toggle feature** that dynamically shows the price **with or without 18% GST**
-- Built using simple front-end logic for a smooth, interactive experience
+💰 Pricing
 
-### 💬 Reviews
-- Add reviews and rate listings (1–5 stars) using **Starability**
-- Edit or delete your own reviews
-- Average rating display per listing
+GST toggle that dynamically shows price with or without 18% GST
 
-### 🔐 Authentication
-- Secure **Sign Up / Login / Logout** system using **Passport.js**
-- Only logged-in users can create, edit, or delete listings/reviews
+💬 Reviews
 
-### 🔎 Search Functionality
-- Search listings by country or keyword
-- Displays all listings from the searched region
+Add, edit, delete reviews with 1–5 star ratings using Starability
+Average rating display per listing
 
-### 🧰 Tech Stack
-- **Frontend:** EJS, HTML, CSS  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB Atlas  
-- **Auth:** Passport.js  
-- **Image Hosting:** Multer + Cloudinary  
-- **Maps:** Mapbox API  
-- **Deployment:** Render  
+🔐 Authentication
 
----
+Secure Sign Up / Login / Logout via Passport.js
+Role-based access — only creators can edit or delete their content
 
-## 💡 Learning Experience
-This project taught me how to connect **frontend, backend, and database systems** into one working product.  
-From **user authentication and CRUD operations** to **API integrations, pricing logic, and deployment**, every part helped me grow as a full-stack developer.
+🔎 Search
 
----
-
-## 🔗 Live Demo
-👉 https://airbnbproject-pnwv.onrender.com/listings
+Search listings by country or keyword
 
 
----
+🧰 Tech Stack
+LayerTechnologyFrontendEJS, HTML, CSS, BootstrapBackendNode.js, Express.jsDatabaseMongoDB AtlasAIOpenAI APIAuthPassport.jsImage HostingMulter + CloudinaryMapsMapbox APIDeploymentRender
 
-⭐ *If you liked this project, don’t forget to star the repo!*
+🤖 AI Concierge — How It Works
+User types: "cozy mountain cottage"
+        ↓
+1. Query parser extracts keywords → ["cozy", "mountain", "cottage"]
+2. Stopwords removed, word variants generated (singular/plural)
+3. MongoDB regex search across title, description, location
+4. Candidates sent to OpenAI for intelligent ranking
+5. If OpenAI unavailable → heuristic fallback scores by
+   keyword match fraction (70%) + price weighting (30%)
+6. Top results returned to user
+Built entirely via GitHub Copilot in CLI following a specification-first development workflow — spec defined upfront, code generated, reviewed line by line, tested, and iterated.
+
+💡 What I Learned
+Beyond standard full-stack development, this project taught me how to integrate AI into a real production workflow — writing specifications before code, using CLI-based AI tools to generate and review code, building graceful fallback systems, and thinking about what happens when third-party APIs fail.
+
+⭐ If you found this useful, star the repo!
