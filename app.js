@@ -20,6 +20,7 @@ const LocalStrategy = require("passport-local")
 const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js"); // for express routing of listings.
 const reviewsRouter = require("./routes/review.js"); // for express routing of reviews.
+const apiRouter = require("./routes/api.js"); // for express routing of api routes.
 const userRouter = require("./routes/user.js");
 const DBurl = process.env.ATLASDB_URL;
 
@@ -29,6 +30,7 @@ const DBurl = process.env.ATLASDB_URL;
 app.set("view engine", "ejs");
 app.set("views" , path.join(__dirname , "views"));
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.engine("ejs" , ejsMate);
 app.use(express.static(path.join(__dirname , "/public")));
@@ -60,7 +62,7 @@ const sessionOptions = {
 
 
 
-app.use(session(sessionOptions));
+app.use(session(sessionOptions)); 
 app.use(flash());
 
 // for passport which helps in authentication
@@ -109,6 +111,13 @@ app.use("/listings" , listingRouter); // whenever route has listings it will go 
 app.use("/listings/:id/reviews" , reviewsRouter);// similar to listings.
 
 app.use("/", userRouter);
+
+// Redirect legacy /concierge URL to the new page served under /api/concierge
+app.get('/concierge', (req, res) => {
+  return res.redirect('/api/concierge');
+});
+
+app.use("/api", apiRouter);
 
 // app.all('/*', (req,res,next) => {
 //     next(new ExpressError(404 , "Page not Found"));

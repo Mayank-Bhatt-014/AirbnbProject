@@ -1,0 +1,20 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="concierge-center">
+  <div class="concierge-card">
+    <h2>AI Travel Concierge</h2>
+    <p class="muted">Enter a query like “Cottages” or “city views”.</p>
+
+    <form id="conciergeForm" method="post" action="/api/concierge">
+      <div class="concierge-row">
+        <input id="queryInput" type="text" placeholder="e.g. cottages near beach" />
+        <button id="searchBtn" type="submit">Search</button>
+      </div>
+      <div id="error" class="error" role="alert" aria-live="polite"></div>
+    </form>
+
+    <div id="results" class="result" aria-live="polite"></div>
+  </div>
+</div>
+
+<script src="/js/concierge.js"></script>

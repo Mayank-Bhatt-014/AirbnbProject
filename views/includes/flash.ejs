@@ -1,4 +1,4 @@
-<% if(success && success.length){ %> <!-- otherwise div will take the unnessecary space-->
+<% if (typeof success !== 'undefined' && success && success.length) { %> <!-- otherwise div will take the unnessecary space-->
     <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
         <%= success %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -6,7 +6,7 @@
 <% } %> 
 
 
-<% if(error && error.length){ %> <!-- otherwise div will take the unnessecary space-->
+<% if (typeof error !== 'undefined' && error && error.length) { %> <!-- otherwise div will take the unnessecary space-->
     <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
         <%= error %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

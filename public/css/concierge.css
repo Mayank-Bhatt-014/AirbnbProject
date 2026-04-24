@@ -1,0 +1,18 @@
+body.concierge-page { font-family: Arial, Helvetica, sans-serif; background:#f7f7f9; margin:0; }
+.concierge-center { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+.concierge-card { background:white; padding:24px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06); width:720px; max-width:95%; }
+.concierge-row { display:flex; gap:8px; }
+input[type=text]{ flex:1; padding:10px 12px; font-size:16px; border:1px solid #ddd; border-radius:6px; }
+button{ padding:10px 14px; border-radius:6px; border:0; background:#0069ff; color:white; font-weight:600; cursor:pointer }
+.muted{ color:#666; font-size:14px }
+.result{ border-top:1px solid #eee; padding-top:12px; margin-top:12px }
+.rec{ padding:10px; border:1px solid #f0f0f0; border-radius:6px; margin-bottom:8px; background:#fafafa }
+.rec-link{ display:block; text-decoration:none; color:inherit }
+.rec-link .rec{ cursor:pointer }
+.error{ color:#b00020; margin-top:8px }
+.empty{ color:#333; margin-top:8px }
+
+@media (max-width: 520px) {
+  .concierge-card { padding:16px; }
+  input[type=text]{ font-size:14px }
+}

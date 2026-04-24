@@ -1,0 +1,1 @@
+﻿require('dotenv').config(); const mongoose=require('mongoose'); const Listing=require('./models/listing'); (async ()=>{ try{ await mongoose.connect(process.env.ATLASDB_URL); const c=await Listing.countDocuments(); console.log('listing count=',c); }catch(e){ console.error(e); } process.exit(0); })();
