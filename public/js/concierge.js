@@ -3,9 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('queryInput');
   const results = document.getElementById('results');
   const error = document.getElementById('error');
+  const warningEl = document.getElementById('warning');
 
   function showError(msg) {
     error.textContent = msg;
+  }
+
+  function showWarning(msg) {
+    if (!warningEl) return;
+    warningEl.textContent = msg;
+    warningEl.style.display = 'block';
+  }
+
+  function clearWarning() {
+    if (!warningEl) return;
+    warningEl.textContent = '';
+    warningEl.style.display = 'none';
   }
 
   function clearError() {
@@ -67,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearError();
+    clearWarning();
     results.innerHTML = '';
 
     const query = input.value && input.value.trim();
@@ -84,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       if (!resp.ok) throw new Error('Server error');
       const data = await resp.json();
+      if (data && data.warning) showWarning(data.warning);
       renderRecommendations(data);
     } catch (err) {
       showError('Failed to get recommendations. Try again later.');
